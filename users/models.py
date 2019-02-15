@@ -21,7 +21,7 @@ class PassportManager(models.Manager) :
 
 
 
-class passport(BaseModel) :
+class Passport(BaseModel) :
     '''用户模型类'''
     username = models.CharField(max_length=20,unique=True,verbose_name='用户名称')
     password = models.CharField(max_length=40,verbose_name='用户密码')
