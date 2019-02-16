@@ -19,4 +19,5 @@ from books import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),  # 首页
     url(r'books/(?P<books_id>\d+)/$', views.detail, name='detail'),
+    url(r'^list/(?P<type_id>\d+)/(?P<page>\d+)/$', views.list, name='list')
 ]

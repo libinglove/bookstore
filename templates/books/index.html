@@ -52,7 +52,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=1 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
@@ -78,7 +78,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=2 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
@@ -104,7 +104,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=3 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
@@ -130,7 +130,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=4 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
@@ -156,7 +156,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=5 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
@@ -182,7 +182,7 @@
                     <a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="book_more fr">查看更多 ></a>
+            <a href="{% url 'books:list' type_id=6 page=1 %}" class="book_more fr">查看更多 ></a>
         </div>
 
         <div class="book_con clearfix">
