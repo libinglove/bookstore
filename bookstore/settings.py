@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users', # 用户模块
     'books', # 商品模块
-    'tinymce'
+    'tinymce',
+    'order',
 ]
 
 MIDDLEWARE = [
