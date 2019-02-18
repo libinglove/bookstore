@@ -13,15 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
-from django.contrib import admin
+from django.conf.urls import url
+from comments import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^user/',include('users.urls', namespace='user')),
-    url(r'^tinymce/', include('tinymce.urls', namespace='tinymce')),
-    url(r'^', include('books.urls', namespace='books')),
-    url(r'^cart/', include('cart.urls', namespace='cart')),
-    url(r'^order/', include('order.urls', namespace='order')),
-    url(r'^comment/', include('comments.urls', namespace='comment')), # 评论模块
+    url(r'comment/(?P<books_id>\d+)/$', views.comment, name='comment'),  # 评论内容'
 ]

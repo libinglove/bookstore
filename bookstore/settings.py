@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tinymce',
     'order',
     'users.templatetags.filters',
+    'comments',
 ]
 
 MIDDLEWARE = [
