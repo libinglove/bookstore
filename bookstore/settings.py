@@ -156,3 +156,4 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 
+ALIPAY_URL='https://openapi.alipaydev.com/gateway.do'

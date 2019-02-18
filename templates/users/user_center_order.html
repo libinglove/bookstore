@@ -68,3 +68,40 @@
     </div>
 {% endblock body %}
 
+{% block bottomfiles %}
+    <script>
+        $(function () {
+            $('.oper_btn').click(function () {
+                // 获取订单id和订单的状态
+                var order_id = $(this).attr('order_id')
+                var order_status = $(this).attr('order_status')
+                var csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                var params = {
+                    'order_id':order_id,
+                    'csrfmiddlewaretoken':csrf
+                }
+                if(order_status == 1) {
+                    $.post('/order/pay/', params, function (data) {
+                        if(data.res == 3) {
+                            // 把用户引导支付页面
+                            window.open(data.pay_url)
+                            // 查询用户支付结果
+                            $.post('/order/check_pay/', params, function (data) {
+                                if(data.res == 3) {
+                                    alert('支付成功')
+                                    // 重新刷新页面
+                                    location.reload()
+                                }else {
+                                    alert(data.errmsg)
+                                }
+                            })
+                        }else {
+                            alert(data.errmsg)
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
+{% endblock %}
