@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'books', # 商品模块
     'tinymce',
     'order',
+    'users.templatetags.filters',
 ]
 
 MIDDLEWARE = [

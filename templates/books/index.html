@@ -87,7 +87,7 @@
                 {% for book in javascript_hot %}
                 <li>
                     <h4><a href="{% url 'books:detail' books_id=book.id %}">{{ book.name }}</a></h4>
-                    <a href="#"><img src="{% static book.image %}"></a>
+                    <a href="{% url 'books:detail' books_id=book.id %}"><img src="{% static book.image %}"></a>
                     <div class="price">¥ {{ book.price }}</div>
                 </li>
                 {% endfor %}

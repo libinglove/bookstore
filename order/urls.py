@@ -14,16 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
-from users import views
+from order import views
 
 urlpatterns = [
-    url(r'^register/$', views.register,name='register'),
-    url(r'^register_handle/$',views.register_handle,name='register_handle'),
-    url(r'^login/$', views.login, name='login'),
-    url(r'^login_check/$', views.login_check, name='login_check'),
-    url(r'^logout/$', views.logout, name='logout'),
-    url(r'^address/$', views.address, name='address'),
-    url(r'^order/(?P<page>\d+)?/?$', views.order, name='order'), # 用户中心-订单页  增加分页功能
-    url(r'^$', views.user, name='user'),
+    url(r'^place/$', views.order_place, name='place'),
+    url(r'^commit/$', views.order_commit, name='commit'),
 ]
