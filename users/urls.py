@@ -25,5 +25,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^address/$', views.address, name='address'),
     url(r'^order/(?P<page>\d+)?/?$', views.order, name='order'), # 用户中心-订单页  增加分页功能
+    url(r'^active/(?P<token>.*)/$', views.register_active, name='active'),  # 用户激活
+    url(r'^verifycode/$', views.verifycode, name='verifycode'), # 验证码功能
     url(r'^$', views.user, name='user'),
 ]
