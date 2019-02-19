@@ -9,6 +9,8 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from itsdangerous import SignatureExpired
 from django.conf import settings
 from users.tasks import send_active_email
+from django_redis import get_redis_connection
+from books.models import Books
 
 
 # Create your views here.
@@ -119,14 +121,23 @@ def user(request) :
     # 获取用户的基本信息
     addr = Adderss.objects.get_default_address(passport_id=passport_id)
 
+    # 获取用户的最近浏览信息
+    con = get_redis_connection('default')
+    key = 'history_%d' % passport_id
+    # 取出用户最近浏览的5个商品的id
+    history_li = con.lrange(key, 0, 4)
+
     books_li = []
 
-    context = {
+    for id in history_li :
+        books = Books.objects.get_books_by_id(books_id=id)
+        books_li.append(books)
+
+    return render(request, 'users/user_center_info.html', {
         'addr' : addr,
         'page' : 'user',
         'books_li' : books_li
-    }
-    return render(request, 'users/user_center_info.html', context)
+    })
 
 
 @login_required

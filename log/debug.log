@@ -1,0 +1,59 @@
+INFO b''
+INFO b''
+INFO "GET / HTTP/1.1" 200 16163
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /books/2/ HTTP/1.1" 200 12836
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /comment/comment/2/ HTTP/1.1" 200 25
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO b''
+INFO b''
+INFO "GET / HTTP/1.1" 200 16163
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /books/4/ HTTP/1.1" 200 12845
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /comment/comment/4/ HTTP/1.1" 200 55
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "GET /cart/ HTTP/1.1" 200 13591
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "POST /order/place/ HTTP/1.1" 200 7171
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/ HTTP/1.1" 200 13725
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/ HTTP/1.1" 200 13754
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/ HTTP/1.1" 200 13768
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "POST /order/place/ HTTP/1.1" 200 7171
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "POST /order/commit/ HTTP/1.1" 200 10
+INFO "GET /user/order/ HTTP/1.1" 200 12332
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /user/order/ HTTP/1.1" 200 12332
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /user/order/3 HTTP/1.1" 200 10409
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "POST /order/pay/ HTTP/1.1" 200 820
+INFO b''
+INFO b''
+INFO "GET / HTTP/1.1" 200 16163
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO b''
+INFO b''
+INFO "GET / HTTP/1.1" 200 16163
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /books/3/ HTTP/1.1" 200 12747
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /comment/comment/3/ HTTP/1.1" 200 190
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "POST /cart/add/ HTTP/1.1" 200 10
+INFO "GET /cart/ HTTP/1.1" 200 12997
+INFO "GET /cart/count/ HTTP/1.1" 200 10
+INFO "GET /cart/count/ HTTP/1.1" 200 10
