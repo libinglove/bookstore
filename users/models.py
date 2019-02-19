@@ -4,6 +4,15 @@ from utils.get_hash import get_hash
 
 # Create your models here.
 class PassportManager(models.Manager) :
+    def check_passport(self, username):
+        try:
+            passport = self.get(username=username)
+        except self.model.DoesNotExist:
+            passport = None
+        if passport:
+            return True
+        return False
+
     def add_one_passport(self,username,password,email):
         '''添加一个账户信息'''
         passport = self.create(username=username,password=get_hash(password),email=email)

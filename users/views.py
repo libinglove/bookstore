@@ -5,6 +5,10 @@ import re
 from utils.decorators import login_required
 from django.core.paginator import Paginator
 from order.models import OrderInfo, OrderGoods
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import SignatureExpired
+from django.conf import settings
+from users.tasks import send_active_email
 
 
 # Create your views here.
@@ -26,12 +30,22 @@ def register_handle(request) :
     if not re.match(r'^[a-z0-9][\w\.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$', email) :
         return render(request,'users/register.html',{'errmsg':'邮箱格式不正确！'})
 
-    try:
-        Passport.objects.add_one_passport(username=username,password=password,email=email)
-    except Exception as e :
-        print('e==',e)
-        return render(request,'users/register.html',{'errmsg':'用户名已经存在'})
+    p = Passport.objects.check_passport(username=username)
+    if p :
+        return render(request, 'users/register.html', {'errmsg': '用户名已经存在'})
 
+    # 进行业务处理:注册，向账户系统中添加账户
+    passport = Passport.objects.add_one_passport(username=username, password=password, email=email)
+
+    # 生成激活的token itsdangerous
+    serializer = Serializer(settings.SECRET_KEY, 3600)
+    token = serializer.dumps({'confirm':passport.id})
+    token = token.decode()
+
+    # 给用户的邮箱发激活邮件
+    send_active_email(token, username, email)
+
+    # 注册完，还是返回注册页。
     return redirect(reverse('books:index'))
 
 
